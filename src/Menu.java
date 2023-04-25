@@ -12,15 +12,11 @@ public class Menu {
     }
 
 
-    public static void quiz(Connection conn, String userName) throws SQLException {
+    public static void quiz(Connection conn, String userName, DBInteraction dbInteraction) throws SQLException {
         int number = 0;
         int score = 0;
 
-        //instead of this should be method what make request in DB and return ResultSet with data
-        String sql = "SELECT * FROM questions";
-        Statement statement = conn.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-
+        ResultSet resultSet = dbInteraction.getQuestions(conn);
 
         while (resultSet.next()) {
             number ++;

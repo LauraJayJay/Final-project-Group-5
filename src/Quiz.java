@@ -17,12 +17,13 @@ public class Quiz {
         String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + ", let's try to complete JavaQuiz!");
 
+         DBInteraction dbInteraction = new DBInteraction();
 
         // Try to connect with DB
         try (Connection conn = DriverManager.getConnection(dbURL, username, password)) {
             System.out.println("Connected to db");
 
-            menu.quiz(conn, userName);
+            menu.quiz(conn, userName, dbInteraction);
 
             //Show users result of the quiz
 
