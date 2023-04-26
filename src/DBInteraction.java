@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBInteraction {
 
@@ -11,7 +8,13 @@ public class DBInteraction {
         ResultSet resultSet = statement.executeQuery(sql);
         return resultSet;
     }
+    public static ResultSet getQuestions (Connection conn, int whichPart)  throws SQLException {
 
+        PreparedStatement statement = conn.prepareStatement("SELECT * from questions WHERE  part = ?");
+        statement.setInt(1, whichPart);
+        ResultSet resultSet = statement.executeQuery();
+        return resultSet;
+    }
     //insert result in quizes table
     //show results from quizes table ordered by fullScore
 

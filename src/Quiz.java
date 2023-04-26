@@ -16,6 +16,8 @@ public class Quiz {
 
         String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + ", let's try to complete JavaQuiz!");
+        System.out.println("Please choose a themes of a quiz: 1 - first part of a course, 2 - second part part of a course, 0 - all course");
+        int part = scanner.nextInt();
 
          DBInteraction dbInteraction = new DBInteraction();
 
@@ -23,7 +25,7 @@ public class Quiz {
         try (Connection conn = DriverManager.getConnection(dbURL, username, password)) {
             System.out.println("Connected to db");
 
-            menu.quiz(conn, userName, dbInteraction);
+            menu.quiz(conn, userName, dbInteraction, part);
 
             //Show users result of the quiz
 

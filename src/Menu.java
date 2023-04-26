@@ -12,11 +12,15 @@ public class Menu {
     }
 
 
-    public static void quiz(Connection conn, String userName, DBInteraction dbInteraction) throws SQLException {
+    public static void quiz(Connection conn, String userName, DBInteraction dbInteraction, int whichPart) throws SQLException {
         int number = 0;
         int score = 0;
-
-        ResultSet resultSet = dbInteraction.getQuestions(conn);
+        ResultSet resultSet;
+        if (whichPart == 0) {
+            resultSet = dbInteraction.getQuestions(conn);}
+        else {
+            resultSet = dbInteraction.getQuestions(conn, whichPart);
+        }
 
         while (resultSet.next()) {
             number ++;
