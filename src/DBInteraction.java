@@ -29,5 +29,10 @@ public class DBInteraction {
 
     }
     //show results from quizes table ordered by fullScore
-
+    public ResultSet getResults(Connection conn) throws SQLException{
+        String sql = "SELECT username, fullScore FROM quizes ORDER BY fullScore DESC LIMIT 5";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        return resultSet;
+    }
 }

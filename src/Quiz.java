@@ -10,7 +10,7 @@ public class Quiz {
         String dbURL = "jdbc:mysql://localhost:3306/javaquiz";
         // !!!Attention. It's necessary to fill out next two fields with your data
         String username = "root";
-        String password = "Klaipeda";
+        String password = "rooter";
         Menu menu = new Menu();
 
         System.out.println("Welcome to the JAVA Quiz Game! ");
@@ -18,31 +18,26 @@ public class Quiz {
 
         String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + ", let's try to complete JavaQuiz!");
-        System.out.println("Please choose a themes of a quiz: \n1 - first part of a course, \n2 - second part part of a course, \n0 - all course");
+        System.out.println("Please choose a part of Java course: \n1 - first part of a course, \n2 - second part part of a course, \n0 - all course");
         int part = scanner.nextInt();
+        if (part != 1 && part != 2){
+            part = 0;
+        }
 
          DBInteraction dbInteraction = new DBInteraction();
 
         // Try to connect with DB
         try (Connection conn = DriverManager.getConnection(dbURL, username, password)) {
-            System.out.println("Connected to db");
 
             menu.quiz(conn, userName, dbInteraction, part);
 
-            //Show users result of the quiz
-
-            //Would you like to look at the raiting?
-            //menu.showRaiting
             scanner.nextLine();
             System.out.println("Would you like to see the rating?(y/n)");
             String show = scanner.nextLine();
             if (show.charAt(0) ==('y')) {
-                menu.showRating(conn, username);
+                System.out.println("__________________________________");
+                menu.showRating(conn, dbInteraction, userName);
             }
-
-
-
-
 
         } catch (Exception e) {
             System.out.println(e);

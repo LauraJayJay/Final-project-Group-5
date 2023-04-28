@@ -75,6 +75,7 @@ public class Menu {
     }
 
     public static void showUserResult(int numQuestions, int numCorrectAnswers, int score, ArrayList<String> wrongAnswers) {
+        System.out.println("__________________________________");
         System.out.println("Quiz result:");
         System.out.println("Total questions: " + numQuestions);
         System.out.println("HEY, you have "  + numCorrectAnswers + " correct answers");
@@ -90,37 +91,31 @@ public class Menu {
         }
     }
 
-    /*public static void showRaiting(Connection conn){
-        //to show data, that was got from dbInteraction
-    }*/
-//    public static void showRating(Connection conn, String username) throws SQLException {
-//        String sql = "SELECT username, fullScore FROM quizes ORDER BY fullScore DESC";
-//        PreparedStatement preparedStatement = conn.prepareStatement(sql);
-//        preparedStatement.setString(1, username);
-//
-//        ResultSet resultSet = preparedStatement.executeQuery();
-//        if (resultSet.next()) {
-//            int rating = resultSet.getInt(1) + 1;
-//            System.out.println("Your rating is: " + rating);
-//        }
-//    }
 
+    public static void showRating(Connection conn, DBInteraction dbInteraction, String username) throws SQLException {
 
-    public static void showRating(Connection conn, String username) throws SQLException {
-        String sql = "SELECT username, fullScore FROM quizes ORDER BY fullScore DESC";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery();
+        ResultSet resultSet = dbInteraction.getResults(conn);
 
-        System.out.println("\nQuiz rating:");
+        System.out.println("Quiz rating:");
 
         int position = 1;
-
+        String userPlace = "";
         while (resultSet.next()) {
             String userName = resultSet.getString("username");
             int fullScore = resultSet.getInt("fullScore");
             System.out.printf("%d. %s: %d\n", position, userName, fullScore);
+
+            if(username.equals(userName) && userPlace.length() == 0){
+                userPlace = "You are on the " + position + " place!";
+            }
             position++;
         }
+        System.out.println("__________________________________");
+        if (userPlace.length() == 0) {
+            System.out.println("Sorry, you are not in the Top 5 (((");
+        } else {
+            System.out.println(userPlace);
+        };
     }
 
 }
