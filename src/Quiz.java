@@ -33,8 +33,14 @@ public class Quiz {
 
             //Would you like to look at the raiting?
             //menu.showRaiting
+            scanner.nextLine();
+            System.out.println("Would you like to see the rating?(y/n)");
+            String show = scanner.nextLine();
+            if (show.charAt(0) ==('y')) {
+                menu.showRating(conn, username);
+            }
 
-            menu.showRating(conn, username);
+
 
 
 
