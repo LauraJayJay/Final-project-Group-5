@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
 public class Menu {
@@ -72,7 +69,7 @@ public class Menu {
                 System.out.println("Incorrect value");
             }
         }
-
+        dbInteraction.insertScore(conn,userName,score);
         showUserResult(number, numCorrectAnswers, score, wrongAnswers);
 
     }
@@ -96,4 +93,34 @@ public class Menu {
     /*public static void showRaiting(Connection conn){
         //to show data, that was got from dbInteraction
     }*/
+//    public static void showRating(Connection conn, String username) throws SQLException {
+//        String sql = "SELECT username, fullScore FROM quizes ORDER BY fullScore DESC";
+//        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+//        preparedStatement.setString(1, username);
+//
+//        ResultSet resultSet = preparedStatement.executeQuery();
+//        if (resultSet.next()) {
+//            int rating = resultSet.getInt(1) + 1;
+//            System.out.println("Your rating is: " + rating);
+//        }
+//    }
+
+
+    public static void showRating(Connection conn, String username) throws SQLException {
+        String sql = "SELECT username, fullScore FROM quizes ORDER BY fullScore DESC";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+
+        System.out.println("\nQuiz rating:");
+
+        int position = 1;
+
+        while (resultSet.next()) {
+            String userName = resultSet.getString("username");
+            int fullScore = resultSet.getInt("fullScore");
+            System.out.printf("%d. %s: %d\n", position, userName, fullScore);
+            position++;
+        }
+    }
+
 }

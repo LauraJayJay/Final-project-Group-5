@@ -10,7 +10,7 @@ public class Quiz {
         String dbURL = "jdbc:mysql://localhost:3306/javaquiz";
         // !!!Attention. It's necessary to fill out next two fields with your data
         String username = "root";
-        String password = "root12345";
+        String password = "Klaipeda";
         Menu menu = new Menu();
 
         System.out.println("Welcome to the JAVA Quiz Game! ");
@@ -34,22 +34,15 @@ public class Quiz {
             //Would you like to look at the raiting?
             //menu.showRaiting
 
+            menu.showRating(conn, username);
+
+
+
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
 
-    //DBClass -> methods getting and writing in DB
-    public static void insertScore (Connection conn, String username, int fullScore) throws SQLException {
-        String sql = "INSERT INTO quizes (username, fullScore) VALUES (?,?)";
-
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1, username);
-        preparedStatement.setInt(2, fullScore);
-
-        preparedStatement.executeUpdate();
-
-    }
 
 }
