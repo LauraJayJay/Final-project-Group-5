@@ -9,8 +9,8 @@ public class Quiz {
         Scanner scanner = new Scanner(System.in);
         String dbURL = "jdbc:mysql://localhost:3306/javaquiz";
         // !!!Attention. It's necessary to fill out next two fields with your data
-        String username = "root";
-        String password = "rooter";
+        String username = "";
+        String password = "";
         Menu menu = new Menu();
 
         System.out.println("Welcome to the JAVA Quiz Game! ");

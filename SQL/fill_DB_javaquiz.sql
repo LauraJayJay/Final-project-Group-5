@@ -1,3 +1,5 @@
+CREATE db javaqiuz;
+
 CREATE TABLE questions (
 	questionID int AUTO_INCREMENT PRIMARY KEY,
     question varchar(1000) NOT NULL,
