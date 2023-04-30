@@ -11,14 +11,19 @@ As a result we have a small program with abilities:
 - to view quiz scores and rating
 
 Java Quiz description:
+
 A quiz program interacts with  MySql database which includes two tables with questions and quiz results stored. Different set of questions can be retrieved from the database, the answer choices are shuffled for each question.
 Then the questions and answer choices are presented to the user, and the user's correct answers are being counted as a score. Finally the user's quiz results are retrieved from the database and according to the choice of the user the rating is presented.
 
 Block diagram
+![image](https://user-images.githubusercontent.com/78532062/235372602-f8de0c3e-3908-40a5-9610-0c8018d230a3.png)
 
 Data Base structure
 
+![image](https://user-images.githubusercontent.com/78532062/235372722-e12486ca-111f-418c-a17b-9ee098651cf1.png)
+
 Getting Started
+
 To launch the program you have to create a new MySQL Data Base called javaquiz, to create the necessary tables and fields execute script from Final-project-Group-5/SQL/fill_DB_javaquiz.sql
 Don't forget to establish a connection to the MySQL database through JDBC.
 The program is run from Final-project-Group-5/src/Quiz.java
@@ -26,3 +31,7 @@ The program is run from Final-project-Group-5/src/Quiz.java
 Built with
 - Java + IntelliJ
 - MySQL + MySQL Workbench
+
+Contributing
+
+See the list of contributors who participated in this project.
