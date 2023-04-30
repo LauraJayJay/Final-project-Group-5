@@ -20,7 +20,7 @@ Block diagram
 
 Data Base structure
 
-![image](https://user-images.githubusercontent.com/78532062/235373026-d730e42a-8943-4985-a9d3-c0eb5fc0cdac.png)
+![image](https://user-images.githubusercontent.com/78532062/235373541-1f838627-5df1-450b-8832-cc283cc5f403.png)
 
 Getting Started
 
