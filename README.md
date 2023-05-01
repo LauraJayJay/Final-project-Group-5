@@ -1,6 +1,6 @@
 JAVA QUIZ
 
-This is a final project of the 5th groupe for the Java course in the "She Goes Tech" program.
+This is a final project for the Java course in the "She Goes Tech" program.
 
 The goal was to сonsolidate knowledge of Java in a game form and to gain an experience in Java creating software code.
 
@@ -17,10 +17,6 @@ Then the questions and answer choices are presented to the user, and the user's 
 
 Block diagram
 ![image](https://user-images.githubusercontent.com/78532062/235372602-f8de0c3e-3908-40a5-9610-0c8018d230a3.png)
-
-Data Base structure
-
-![image](https://user-images.githubusercontent.com/78532062/235373640-86ad3227-fb0a-41c6-bc9b-70b726e871c6.png)
 
 Getting Started
 
