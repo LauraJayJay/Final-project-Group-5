@@ -48,8 +48,7 @@ public class Menu {
             //print answers
             for (Map.Entry<String, String> entry : mapAnswers.entrySet()) {
                 System.out.println(entry.getKey() + ") " + entry.getValue());
-            }
-            ;
+            };
 
             //get answer from user
             String usersAnswer = scanner.nextLine().toUpperCase();
@@ -78,11 +77,11 @@ public class Menu {
         System.out.println("__________________________________");
         System.out.println("Quiz result:");
         System.out.println("Total questions: " + numQuestions);
-        System.out.println("HEY, you have "  + numCorrectAnswers + " correct answers");
+        System.out.println("HEY, you have "  + numCorrectAnswers + " correct answer(s)");
         System.out.println("Your full score is: " + score);
 
         if (!wrongAnswers.isEmpty()) {
-            System.out.println("Here you was wrong:");
+            System.out.println("Here you were wrong:");
             for (int i = 0; i < wrongAnswers.size(); i++) {
                 System.out.println((i+1) + ") " + wrongAnswers.get(i));
             }

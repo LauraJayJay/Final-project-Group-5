@@ -13,7 +13,7 @@ public class Quiz {
         String password = "";
         Menu menu = new Menu();
 
-        System.out.println("Welcome to the JAVA Quiz Game! ");
+        System.out.println("Welcome to JAVA Quiz Game! ");
         System.out.println("What is your name?");
 
         String userName = scanner.nextLine();
